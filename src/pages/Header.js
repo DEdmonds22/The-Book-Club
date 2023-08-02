@@ -1,6 +1,7 @@
 import { useState } from "react"
+import { Link } from "react-router-dom";
 
-export default function Nav() {
+export default function Header() {
 
     const [menuIsOpen, setMenuIsOpen] = useState(false);
 
@@ -12,9 +13,16 @@ export default function Nav() {
         <header>
             <div>
                 <div id="navBar">
-                    <p>The Book Club</p>
+                    <Link to="/">
+                        <p>The Book Club</p>
+                    </Link>
+
                     <input type="text" placeholder="Choose Your Book!"></input>
-                    <p>user logo</p>
+
+                    <Link to="/sign-in">
+                        <p>user logo</p>
+                    </Link>
+
                     <div className="hamburger" onClick={openMenu}>
                         <span className="bar"></span>
                         <span className="bar"></span>

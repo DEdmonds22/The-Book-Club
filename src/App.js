@@ -1,11 +1,15 @@
 import './App.css';
-import Nav from './pages/nav';
+import { Routes, Route } from 'react-router-dom';
+import Header from './pages/Header';
+import SignIn from './pages/Sign-In';
 
 function App() {
   return (
     <div className="App">
-      <Nav />
-      
+      <Routes>
+        <Route path="/" element={<Header />}/>
+        <Route path="/sign-in" element={<SignIn />} />
+      </Routes>
     </div>
   );
 }
