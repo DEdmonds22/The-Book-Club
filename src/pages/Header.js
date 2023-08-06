@@ -1,17 +1,22 @@
-import { useState } from "react"
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Header() {
+export default function Header({ onSearch }) {
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
-    const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const openMenu = () => {
+    setMenuIsOpen((prev) => !prev);
+  };
 
-    const openMenu = () => {
-        setMenuIsOpen(prev => !prev);
-    }
+  const closeMenu = () => {
+    setMenuIsOpen(false);
+  };
 
-    const closeMenu = () => {
-        setMenuIsOpen(false);
-    }
+  const handleSearch = (event) => {
+    event.preventDefault();
+    onSearch(searchTerm);
+  };
 
     return (
         <header>
@@ -21,9 +26,17 @@ export default function Header() {
                         <p>The Book Club</p>
                     </Link>
 
-                    <input 
-                        type="text" 
-                        placeholder="Choose Your Book!" />
+                    <form onSubmit={handleSearch}>
+          <div className="search-bar">
+            <input
+              type="text"
+              placeholder="Choose Your Book!"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <button type="submit">Enter</button>
+          </div>
+        </form>
 
                     <Link to="/sign-in">
                         <p>user logo</p>

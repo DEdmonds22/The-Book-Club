@@ -16,9 +16,13 @@ import Hosting from './pages/Hosting';
 import UpcommingEvents from './pages/UpcommingEvents';
 
 function App() {
+  const handleSearch = (searchTerm) => {
+    window.location.href = `/full-library?search=${searchTerm}`;
+  };
+
   return (
     <div className="App">
-      <Header />
+      <Header onSearch={handleSearch} />
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/sign-in" element={<SignIn />} />
