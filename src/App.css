@@ -2,9 +2,48 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 /* NAV.JS */
+.logo {
+  border: 2px solid rgb(190, 162, 125);
+  padding: 4px;
+}
+
+.search-bar {
+  text-align: center;
+  background-color: tan;
+  border-radius: 30px;
+  padding: 2px 12px;
+  width: 500px;
+}
+
+input[type="text"] {
+  border: none;
+  outline: none;
+  flex: 1;
+  padding: 8px;
+  font-size: 16px;
+  background: transparent;
+  color: white;
+}
+
+.search-bar button {
+  padding: 5px;
+  border-radius: 30px;
+  border: none;
+  color: rgb(73, 55, 36);
+}
+
+.search-bar button:hover {
+  cursor: pointer;
+}
+
+.search-bar button:active {
+  font-size: 14px;
+}
+
 #navBar p {
   cursor: pointer;
 }
@@ -17,8 +56,10 @@ a {
   text-decoration: none;
 }
 
-.header {
+header {
   border-bottom: 1px soild #e2e8f0;
+  margin: 10px 0;
+
 }
 
 #navBar {
@@ -32,6 +73,7 @@ a {
   display: block;
   cursor: pointer;
 }
+
 
 .bar {
   display: block;
@@ -56,11 +98,11 @@ a {
   flex-direction: column;
   align-items: center;
   top: 5rem;
-  background-color: #fff;
   width: 100%;
   border-radius: 10px;
   box-shadow:
   0 10px 27px rgba(0, 0, 0, 0.05);
+  background-color: rgb(254, 252, 248);
 }
 
 .nav-item {
@@ -76,12 +118,25 @@ a {
 .nav-link:hover {
   color: tan;
 }
+.nav-link:active {
+  color: rgb(73, 55, 36);
+}
 
 
 /* HOME.JS */
 #home-page {
-  font-family: 'Times New Roman', Times, serif;
   text-align: center;
+}
+
+#home-page h2{
+  font-family: 'Times New Roman', Times, serif;
+  color: rgb(73, 55, 36);
+  margin: 3px;
+}
+
+#home-page h2:hover{
+  color: white;
+  font-size: 1.7rem;
 }
 
 #container {
@@ -93,7 +148,9 @@ a {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    padding: 8px
+    padding: 8px;
+    cursor: default;
+    border: 2px solid #100c0c;
 }
 
 .bookOfTheMonth {
@@ -136,4 +193,61 @@ a {
     border-left: 2px solid #100c0c;
     grid-column: 5/6;
     grid-row: 2/3;
+}
+
+
+/* FULL-LIBRARY book cards*/
+
+.book-con {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding: 20px;
+}
+
+.book {
+  height: auto;
+  width: 350px;
+  border: 3px dotted rgb(73, 55, 36);
+  padding: 10px;
+  margin: 0 auto;
+  color: rgb(73, 55, 36);
+  background-color: tan;
+  text-align: center;
+}
+
+.book img {
+  width: 150px;
+  height:200px
+}
+
+.book h2,
+.book p {
+  margin: .8rem;
+}
+
+.book h2:hover,
+.book p:hover {
+  color: white;
+  cursor: pointer;
+  font-size: 1.7rem;
+}
+
+.book:active,
+.book h2:active,
+.book p:active {
+  color:  black;
+  background-color: tan;
+}
+
+/*TESSTT*/
+.bookTester-con {
+  display: flex;
+  width: auto;
+  align-items: center;
+}
+
+.det {
+  width: 70%;
 }

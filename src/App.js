@@ -16,13 +16,15 @@ import Hosting from './pages/Hosting';
 import UpcommingEvents from './pages/UpcommingEvents';
 
 function App() {
-  const handleSearch = (searchTerm) => {
-    window.location.href = `/full-library?search=${searchTerm}`;
+  const handleSearch = (searchTerm) => { // used to handle the search func. in the app
+    window.location.href = `/full-library?search=${searchTerm}`; // redirect user to new url that includes search term
+    /*window.location.href - is used to redirect the page
+    alt. useHistory or Link*/
   };
 
   return (
     <div className="App">
-      <Header onSearch={handleSearch} />
+      <Header onSearch={handleSearch} />  
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/sign-in" element={<SignIn />} />
