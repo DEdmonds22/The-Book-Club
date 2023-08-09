@@ -1,7 +1,5 @@
 # The Book Club Repository
 
-![The Book Club Logo](https://your-image-url.com)
-
 > Welcome to the **The Book Club** repository! Your hub for literary exploration, engaging discussions, and building a community around the love of reading.
 
 ## Table of Contents
