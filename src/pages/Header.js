@@ -8,11 +8,9 @@ export default function Header({ onSearch }) { // prop passed down from app.js i
     const openMenu = () => {
         setMenuIsOpen((prev) => !prev);
     };
-
     const closeMenu = () => {
         setMenuIsOpen(false);
     };
-
     const handleSearch = (event) => {   // a diff func named handleSearch, but uses App.js's handleSearch (onSearch), activated when form is submitted.
         event.preventDefault();
         onSearch(searchTerm);
