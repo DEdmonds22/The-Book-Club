@@ -1,12 +1,15 @@
 
-export default function BookShelf() {
+export default function BookShelf({bookList}) {
     return (
         <div>
             <h1>Book Shelf page</h1>
-            <ul>
-                <li>list of favorited books</li>
-                <li>able to sort by name, date added, author</li>
-            </ul>
+            {bookList.map((book) => (
+                <div key={book.id} className="book" >
+                <h2>{book.title}</h2>
+                <img src={book.img} />
+                <p>by: {book.authors?.join(", ")}</p>
+            </div>
+        ))}
         </div>
     )
 }

@@ -14,8 +14,22 @@ import RecommendedBooks from './pages/Recommended-Books';
 import Hosting from './pages/Hosting';
 import UpcommingEvents from './pages/UpcommingEvents';
 import SearchResults from './components/SearchResults';
+import { useState } from 'react';
 
 function App() {
+  const [bookList, setBookList] = useState([]);
+
+  const addBook = (id, title,  authors, description, category, img) => {
+    const newRead = {
+      key:id,
+      title: title,
+      authors: authors,
+      description: description,
+      category: category,
+      img: img
+    }
+    setBookList(prev => [...prev, newRead])
+  }
 
   return (
     <div className="App">
@@ -24,8 +38,8 @@ function App() {
         <Route path="/" element={<Home />}/>
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/profile" element={<Profile />}/>
-        <Route path="/book-shelf" element={<BookShelf />} />
-        <Route path="/searchResults/" element={<SearchResults />} />
+        <Route path="/book-shelf" element={<BookShelf bookList={bookList} />} />
+        <Route path="/searchResults/" element={<SearchResults addBook={addBook}/>} />
         <Route path="/book-clubs" element={<BookClubs />}/>
         <Route path="/settings" element={<Settings />} />
         <Route path="/book-of-the-month" element={<BOTM />} />
