@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-export default function Header({ onSearch }) { // prop passed down from app.js is a func named handleSearch, saved to header's att names onSearch
+export default function Header() {
     const [menuIsOpen, setMenuIsOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
+
+    const navigate = useNavigate();
 
     const openMenu = () => {
         setMenuIsOpen((prev) => !prev);
@@ -11,9 +13,9 @@ export default function Header({ onSearch }) { // prop passed down from app.js i
     const closeMenu = () => {
         setMenuIsOpen(false);
     };
-    const handleSearch = (event) => {   // a diff func named handleSearch, but uses App.js's handleSearch (onSearch), activated when form is submitted.
+    const handleSubmit = (event) => {
         event.preventDefault();
-        onSearch(searchTerm);
+        window.location.href = `/searchResults?search=${searchTerm}`
     };
 
     return (
@@ -28,7 +30,7 @@ export default function Header({ onSearch }) { // prop passed down from app.js i
                         </Link>
                     </div>
 
-                    <form onSubmit={handleSearch}>
+                    <form onSubmit={handleSubmit}>
                         <div className="search-bar">
                             <input
                             type="text"
